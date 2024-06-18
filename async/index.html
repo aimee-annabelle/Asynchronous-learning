@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Async</title>
-    <script src="./httprequests.js" defer></script>
+    <!-- <script src="./httprequests.js" defer></script> -->
 </head>
 <body>
     <h1>JS Asynchronous</h1>
+    <a id="block" href="">Block for 5 seconds</a>
+<p>
+<button>This is a button</button>
+<div id="statusMessage"></div>
+<script>
+    document.getElementById('block')
+    .addEventListener('click', onClick);
+
+    function onClick(event) {
+        event.preventDefault();
+
+        setStatusMessage('Blocking...');
+
+        // Call setTimeout(), so that browser has time to display
+        // status message
+        setTimeout(function () {
+            sleep(5000);
+            setStatusMessage('Done');
+        }, 0);
+    }
+    function setStatusMessage(msg) {
+        document.getElementById('statusMessage').textContent = msg;
+    }
+    function sleep(milliseconds) {
+        var start = Date.now();
+        while ((Date.now() - start) < milliseconds);
+    }
+</script>
 </body>
 </html>
