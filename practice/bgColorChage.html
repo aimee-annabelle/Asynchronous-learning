@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+              let body = document.body;
+              let colors = ["red","blue","green","yellow","purple","orange","pink","cyan","magenta","teal"]
+              setInterval(()=>{
+                  body.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)]
+              },3000)
+    </script>
+  </body>
+</html>
