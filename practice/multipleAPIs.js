@@ -1,19 +1,7 @@
 const fetchMultipleAPIs = async(urls) => {
-  let fetchSingle = async(url)=>{
-    let response = await fetch(url);
-    return await response.json();
-  }
-  let requests = urls.map(el => fetchSingle(el));
-  return requests;
-
-  // let requests = urls.map(el => fetch(el));
-  // let result = [];
-//   Promise.all(requests).then(responses =>{
-//     responses.forEach(response => response.json())
-//     result = responses;
-//     return responses
-//   })
-// return result;
+  let requests = urls.map(el => fetch(el).then(data => data.json()));
+  let result = await Promise.all(requests).then(data=> data);
+  return result;
 }
 
 const apiUrls = [

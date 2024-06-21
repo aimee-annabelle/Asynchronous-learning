@@ -8,3 +8,5 @@ const getTodos = async () => {
   const data = await response.json();
   return data;
 };
+let data = getTodos();
+console.log(data)
