@@ -7,8 +7,8 @@ const abortLongFetch = async (url) => {
         setTimeout(()=>{
             controller.abort();
         },10)
-        let response = await fetch(url, {signal});
-        let data = await response.json();
+        const response = await fetch(url, {signal});
+        const data = await response.json();
         return data;
     } catch (error) {
         if (error.name === 'AbortError') {
