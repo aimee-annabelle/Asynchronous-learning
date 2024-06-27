@@ -1,36 +1,38 @@
-var xhr = new XMLHttpRequest();
-var url = './health.json';
-xhr.open('GET', url, true);
-xhr.responseType = 'json';
+const healthCare = () => {
+  const url = "./health_article.json";
+  const request = new XMLHttpRequest();
+  request.open("GET", url, true);
+  request.responseType = "json";
+  request.send();
+  request.onload = () => {
+    let articles = request.response.articles;
+    let articlesDiv = document.getElementById("articles");
+    articles.forEach(function (article) {
+      let articleDiv = document.createElement("div");
+      articleDiv.classList.add("article");
 
-var articles = xhr.response.articles;
-var articlesDiv = document.getElementById('articles');
-  articles.forEach(function(article) {
-      var articleDiv = document.createElement('div');
-      articleDiv.classList.add('article');
-
-      var title = document.createElement('h2');
+      let title = document.createElement("h2");
       title.textContent = article.title;
 
-      var description = document.createElement('p');
+      let description = document.createElement("p");
       description.textContent = article.description;
 
-      var waysHeader = document.createElement('h3');
-      waysHeader.textContent = 'Ways to Achieve:';
+      let waysHeader = document.createElement("h3");
+      waysHeader.textContent = "Ways to Achieve:";
 
-      var waysList = document.createElement('ul');
-      article.ways_to_achieve.forEach(function(way) {
-        var listItem = document.createElement('li');
+      let waysList = document.createElement("ul");
+      article.ways_to_achieve.forEach(function (way) {
+        let listItem = document.createElement("li");
         listItem.textContent = way;
         waysList.appendChild(listItem);
       });
 
-      var benefitsHeader = document.createElement('h3');
-      benefitsHeader.textContent = 'Benefits:';
+      let benefitsHeader = document.createElement("h3");
+      benefitsHeader.textContent = "Benefits:";
 
-      var benefitsList = document.createElement('ul');
-      article.benefits.forEach(function(benefit) {
-        var listItem = document.createElement('li');
+      let benefitsList = document.createElement("ul");
+      article.benefits.forEach(function (benefit) {
+        let listItem = document.createElement("li");
         listItem.textContent = benefit;
         benefitsList.appendChild(listItem);
       });
@@ -41,7 +43,9 @@ var articlesDiv = document.getElementById('articles');
       articleDiv.appendChild(waysList);
       articleDiv.appendChild(benefitsHeader);
       articleDiv.appendChild(benefitsList);
-
       articlesDiv.appendChild(articleDiv);
     });
-    xhr.send();
+  };
+};
+
+healthCare();
