@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="form" style="margin: 10px; padding: 10px">
+      <h3>Register User</h3>
+      <form
+        action=""
+        method="post"
+        id="user-register"
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          justify-content: center;
+          text-align: center;
+          width: 50%;
+        "
+      >
+        <input type="text" placeholder="username" id="username" />
+        <input type="email" placeholder="email" id="email" />
+        <input type="password" name="password" id="password" />
+        <button type="submit">Save</button>
+      </form>
+    </div>
+    <div id="users" style="margin: 10px; padding: 10px">
+      <h3>Get users</h3>
+      <button id="retrieve">Get</button>
+    </div>
+
+    <script src="./form-fetch.js"></script>
+  </body>
+</html>
