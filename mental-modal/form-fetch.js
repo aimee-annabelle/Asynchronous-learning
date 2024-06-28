@@ -7,7 +7,7 @@
  *
  */
 const userForm = document.getElementById("user-register");
-const displatUsers = document.getElementById("users");
+const displayUsers = document.getElementById("users");
 userForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const username = document.getElementById("username").value;
@@ -40,3 +40,23 @@ const postUser = async (data) => {
     alert(error);
   }
 };
+
+setInterval(() => {
+  fetchUsers().then((data) => { 
+    const users = data.map((user) => `<li>${user.username}</li>`).join("");
+    displayUsers.innerHTML = users;
+    console.log(data);
+  })
+  }, 1000)
+
+  const fetchUsers = async () => {
+    try {
+      const url = "https://jsonplaceholder.typicode.com/posts";
+      const response = await fetch(url);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error(error);
+      throw new Error("Unable to fetch users");
+    }
+  };
