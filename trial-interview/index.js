@@ -25,18 +25,14 @@ const fetchCountryWeather = async () => {
     const countryName = countryData[0].name.common;
     const countryCapital = countryData[0].capital.toString();
     const temperature = countryWeather.current_weather.temperature;
-    /**
-     * return `
-     *       Country: ${countryName},
-     *       Capital: ${countryCapital},
-     *       Current Temperature: ${temperature},
-     *   `;
-     */
-    return {
-      Country: countryName,
-      Capital: countryCapital,
-      "Current Temperature": temperature,
-    };
+    
+     return `
+            Country: ${countryName},
+           Capital: ${countryCapital},
+           Current Temperature: ${temperature},
+       `;
+    
+
   } catch (error) {
     console.log(error);
   }
