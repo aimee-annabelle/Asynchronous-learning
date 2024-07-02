@@ -1,6 +1,6 @@
 const fetchMultipleAPIs = async(urls) => {
   let requests = urls.map(el => fetch(el).then(data => data.json()));
-  let result = await Promise.all(requests).then(data=> data);
+  let result = await Promise.all(requests);
   return result;
 }
 
